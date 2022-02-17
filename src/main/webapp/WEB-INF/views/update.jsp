@@ -37,6 +37,18 @@
                         <label>Адрес</label>
                         <input type="text" name="address" class="form-control" value="${accident.address}">
                     </div>
+                    <div class="form-group">
+                        <label>Тип</label>
+                        <select class="form-control" name="type.id">
+                            <c:forEach var="type" items="${types}">
+                                <option value="${type.id}"
+                                    <c:if test="${type.id == accident.type.id}">
+                                        ${"selected"}
+                                    </c:if>
+                                >${type.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
                 </form>
             </div>
