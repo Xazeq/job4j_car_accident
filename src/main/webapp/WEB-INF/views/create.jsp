@@ -17,11 +17,11 @@
     <title>Accident</title>
 </head>
 <body>
-<div>
+<div class="container pt-3">
     <div class="row">
         <div class="card" style="width: 100%">
-            <div class="card-header text-center">
-                <strong id="heading">Новый инцидент</strong>
+            <div class="card-header">
+                Новый инцидент
             </div>
             <div class="card-body">
                 <form action="<c:url value='/save'/>" method='POST'>

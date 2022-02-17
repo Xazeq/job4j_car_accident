@@ -14,38 +14,34 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Accident</title>
 </head>
 <body>
 <div class="container pt-3">
-    <a href="<c:url value='/create'/>">Добавить инцидент</a>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Адрес</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${accidents}" var="accident">
-            <tr>
-                <td><c:out value="${accident.id}"/></td>
-                <td><c:out value="${accident.name}"/></td>
-                <td><c:out value="${accident.text}"/></td>
-                <td><c:out value="${accident.address}"/></td>
-                <td>
-                    <a href="<c:url value='/update?id=${accident.id}'/>">
-                        <i class="fa fa-edit me-3"></i>
-                    </a>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="card" style="width: 100%">
+            <div class="card-header">
+                Редактировать инцедент
+            </div>
+            <div class="card-body">
+                <form action="<c:url value='/save?id=${accident.id}'/>" method='POST'>
+                    <div class="form-group">
+                        <label>Название</label>
+                        <input type="text" name="name" class="form-control" value="${accident.name}">
+                    </div>
+                    <div class="form-group">
+                        <label>Описание</label>
+                        <input type="text" name="text" class="form-control" value="${accident.text}">
+                    </div>
+                    <div class="form-group">
+                        <label>Адрес</label>
+                        <input type="text" name="address" class="form-control" value="${accident.address}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

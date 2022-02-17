@@ -6,11 +6,12 @@ import ru.job4j.accident.model.Accident;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem {
     private final Map<Integer, Accident> accidents = new HashMap<>();
-    private int id = 1;
+    private final AtomicInteger id = new AtomicInteger(0);
 
     public AccidentMem() {
         init();
@@ -36,11 +37,17 @@ public class AccidentMem {
     }
 
     public void save(Accident accident) {
-        accident.setId(id++);
+        if (accident.getId() == 0) {
+            accident.setId(id.incrementAndGet());
+        }
         accidents.put(accident.getId(), accident);
     }
 
     public Collection<Accident> findAllAccidents() {
         return accidents.values();
+    }
+
+    public Accident findById(int id) {
+        return accidents.get(id);
     }
 }
