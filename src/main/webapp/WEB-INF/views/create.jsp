@@ -17,28 +17,31 @@
     <title>Accident</title>
 </head>
 <body>
-<div class="container pt-3">
-    <a href="<c:url value='/create'/>">Добавить инцидент</a>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Адрес</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${accidents}" var="accident">
-            <tr>
-                <td><c:out value="${accident.id}"/></td>
-                <td><c:out value="${accident.name}"/></td>
-                <td><c:out value="${accident.text}"/></td>
-                <td><c:out value="${accident.address}"/></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+<div>
+    <div class="row">
+        <div class="card" style="width: 100%">
+            <div class="card-header text-center">
+                <strong id="heading">Новый инцидент</strong>
+            </div>
+            <div class="card-body">
+                <form action="<c:url value='/save'/>" method='POST'>
+                    <div class="form-group">
+                        <label>Название</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Описание</label>
+                        <input type="text" class="form-control" name="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Адрес</label>
+                        <input type="text" class="form-control" name="address">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
