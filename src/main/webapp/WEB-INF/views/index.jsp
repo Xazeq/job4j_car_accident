@@ -18,18 +18,22 @@
 </head>
 <body>
 <div class="container pt-3">
-    Hello : ${user}
-
     <table class="table">
         <thead>
         <tr>
-            <th>Город</th>
+            <th>#</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Адрес</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${cities}" var="city">
+        <c:forEach items="${accidents}" var="accident">
             <tr>
-                <td><c:out value="${city}"/></td>
+                <td><c:out value="${accident.id}"/></td>
+                <td><c:out value="${accident.name}"/></td>
+                <td><c:out value="${accident.text}"/></td>
+                <td><c:out value="${accident.address}"/></td>
             </tr>
         </c:forEach>
         </tbody>
