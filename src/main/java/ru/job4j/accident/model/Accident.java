@@ -88,13 +88,13 @@ public class Accident {
 
     @Override
     public String toString() {
-        return "Accident{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", text='" + text + '\'' +
-                ", address='" + address + '\'' +
-                ", type=" + type +
-                ", rules=" + rules +
-                '}';
+        return "Accident{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", text='" + text + '\''
+                + ", address='" + address + '\''
+                + ", type=" + type
+                + ", rules=" + rules
+                + '}';
     }
 }
