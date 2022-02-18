@@ -45,6 +45,14 @@
                             </c:forEach>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Статьи</label>
+                        <select class="form-control" name="rIds" multiple>
+                            <c:forEach var="rule" items="${rules}">
+                                <option value="${rule.id}">${rule.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
                 </form>
             </div>
