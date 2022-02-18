@@ -57,9 +57,6 @@ public class AccidentMem {
         accident3.addRule(findRuleById(1));
         accident3.addRule(findRuleById(2));
         this.saveAccident(accident3);
-        System.out.println(accident1);
-        System.out.println(accident2);
-        System.out.println(accident3);
     }
 
     public void saveAccident(Accident accident) {

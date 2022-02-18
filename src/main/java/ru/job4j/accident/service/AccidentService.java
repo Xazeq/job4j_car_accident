@@ -4,51 +4,43 @@ import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentMem;
+import ru.job4j.accident.repository.AccidentJdbcTemplate;
 
 import java.util.Collection;
 
 @Service
 public class AccidentService {
-    private final AccidentMem accidentMem;
+    private final AccidentJdbcTemplate accidentJdbcTemplate;
 
-    public AccidentService(AccidentMem accidentMem) {
-        this.accidentMem = accidentMem;
+    public AccidentService(AccidentJdbcTemplate accidentJdbcTemplate) {
+        this.accidentJdbcTemplate = accidentJdbcTemplate;
     }
 
     public Collection<Accident> findAllAccidents() {
-        return accidentMem.findAllAccidents();
+        return accidentJdbcTemplate.findAllAccidents();
     }
 
     public void saveAccident(Accident accident) {
-        accidentMem.saveAccident(accident);
+        accidentJdbcTemplate.saveAccident(accident);
     }
 
     public Accident findAccidentById(int id) {
-        return accidentMem.findAccidentById(id);
-    }
-
-    public void saveAccidentType(AccidentType accidentType) {
-        accidentMem.saveAccidentType(accidentType);
+        return accidentJdbcTemplate.findAccidentById(id);
     }
 
     public AccidentType findAccidentTypeById(int id) {
-        return accidentMem.findAccidentTypeById(id);
+        return accidentJdbcTemplate.findAccidentTypeById(id);
     }
 
     public Collection<AccidentType> findAllAccidentTypes() {
-        return accidentMem.findAllAccidentTypes();
-    }
-
-    public void saveRule(Rule rule) {
-        accidentMem.saveRule(rule);
+        return accidentJdbcTemplate.findAllAccidentTypes();
     }
 
     public Rule findRuleById(int id) {
-        return accidentMem.findRuleById(id);
+        return accidentJdbcTemplate.findRuleById(id);
     }
 
     public Collection<Rule> findAllRules() {
-        return accidentMem.findAllRules();
+        return accidentJdbcTemplate.findAllRules();
     }
 }
