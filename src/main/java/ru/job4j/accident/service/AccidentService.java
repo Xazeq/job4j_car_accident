@@ -4,43 +4,43 @@ import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentJdbcTemplate;
+import ru.job4j.accident.repository.AccidentHibernate;
 
 import java.util.Collection;
 
 @Service
 public class AccidentService {
-    private final AccidentJdbcTemplate accidentJdbcTemplate;
+    private final AccidentHibernate accidentStore;
 
-    public AccidentService(AccidentJdbcTemplate accidentJdbcTemplate) {
-        this.accidentJdbcTemplate = accidentJdbcTemplate;
+    public AccidentService(AccidentHibernate accidentStore) {
+        this.accidentStore = accidentStore;
     }
 
     public Collection<Accident> findAllAccidents() {
-        return accidentJdbcTemplate.findAllAccidents();
+        return accidentStore.findAllAccidents();
     }
 
     public void saveAccident(Accident accident) {
-        accidentJdbcTemplate.saveAccident(accident);
+        accidentStore.saveAccident(accident);
     }
 
     public Accident findAccidentById(int id) {
-        return accidentJdbcTemplate.findAccidentById(id);
+        return accidentStore.findAccidentById(id);
     }
 
     public AccidentType findAccidentTypeById(int id) {
-        return accidentJdbcTemplate.findAccidentTypeById(id);
+        return accidentStore.findAccidentTypeById(id);
     }
 
     public Collection<AccidentType> findAllAccidentTypes() {
-        return accidentJdbcTemplate.findAllAccidentTypes();
+        return accidentStore.findAllAccidentTypes();
     }
 
     public Rule findRuleById(int id) {
-        return accidentJdbcTemplate.findRuleById(id);
+        return accidentStore.findRuleById(id);
     }
 
     public Collection<Rule> findAllRules() {
-        return accidentJdbcTemplate.findAllRules();
+        return accidentStore.findAllRules();
     }
 }
