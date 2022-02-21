@@ -19,7 +19,16 @@
 </head>
 <body>
 <div class="container pt-3">
-    <a href="<c:url value='/create'/>">Добавить инцидент</a>
+    <div class="row">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='/create'/>">Добавить инцидент</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='/logout'/>">Выйти</a>
+            </li>
+        </ul>
+    </div>
     <table class="table">
         <thead>
         <tr>
