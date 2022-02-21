@@ -15,7 +15,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Login</title>
+    <title>Registration</title>
 </head>
 <body>
 <div class="container pt-3">
@@ -23,21 +23,21 @@
         <div class="row">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value='/reg'/>">Регистрация</a>
+                    <a class="nav-link" href="<c:url value='/login'/>">Войти</a>
                 </li>
             </ul>
         </div>
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Авторизация
+                Регистрация
             </div>
             <div class="card-body">
                 <c:if test="${not empty errorMessage}">
                     <div style="color: red; font-weight: bold;">
-                        ${errorMessage}
+                            ${errorMessage}
                     </div>
                 </c:if>
-                <form name='login' action="<c:url value='/login'/>" method='POST'>
+                <form name='reg' action="<c:url value='/reg'/>" method='POST'>
                     <div class="form-group">
                         <label>Username</label>
                         <input type="text" class="form-control" name="username">
@@ -46,8 +46,7 @@
                         <label>Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
-                    <button name="submit" type="submit" class="btn btn-primary">Войти</button>
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                    <button name="submit" type="submit" class="btn btn-primary">Зарегистрироваться</button>
                 </form>
             </div>
         </div>
